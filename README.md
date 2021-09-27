@@ -69,6 +69,6 @@ docker start docker_flask_server
 
 5) Go to http://localhost:5000/ again. This time try any example with Offine mode. For example, Twitter, keyword = 'Sample', Offline. If tweets for the Keyword 'Sample' aren't available in the DB, no results will show up. If this happens, run the same example with Online. This will fetch new tweets for the keyword, and index it in the Solr DB. Once, the data is indexed, you can hit the api in 'Offline' mode. 
 
-6) Now you can come back and again try the example in the previous step (i.e) Twitter, Sample, Offline. Since there is data for the Keyword now in the DB, results will get populated. Also, hitting the api in 'Offline' mode for the earlier keyword fetched ('Covid') will fetch results too.
+6) Now you can retry the example in the previous step (i.e) Twitter, Sample, Offline. Since there is data for the Keyword now in the DB, results will get populated. Also, hitting the api in 'Offline' mode for the earlier keyword fetched ('Covid') will return results too.
  
 7) Go to http://localhost:8983/solr/#/base_core/query, to access Solr. Click on execute query to verify the presence of this data (for the new keyword 'Sample') and the previous data (Covid) indexed in the DB.
