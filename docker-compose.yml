@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8990:8990"
+    links:
+      - solr
+  solr:
+    image: "solr:8.9.0"
+    ports:
+     - "8983:8983"
+    command:
+      - solr-precreate
+      - base_core
