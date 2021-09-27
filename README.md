@@ -14,7 +14,7 @@
 
  3. **Database:** Solr NoSQL store deployed as a docker container, to index and store user query keywords and their corresponding tweets. This indexed data can be accessed from the DB by querying using the Keyword. The server will push data into Solr along with the user entered keyword and in offline mode the server fetches directly from this DB.
 
-![DS Architecture](https://user-images.githubusercontent.com/20135714/134941143-01a53963-635c-4a35-b8fb-8d7e5309f57c.png)
+![DS Architecture](https://github.com/vishwas-n/Social-Media-Handler/blob/main/DS%20Architecture.png)
 
 
 **Commands to Deploy:
