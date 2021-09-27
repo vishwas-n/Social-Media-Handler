@@ -2,8 +2,8 @@ import pysolr
 import requests
 
 CORE_NAME = "base_core"
-IP = "localhost"
-#IP = "solr"
+#IP = "localhost"
+IP = "solr"
 #IP = "3.16.37.251"
 
 
