@@ -2,8 +2,8 @@ import pysolr
 import requests
 
 CORE_NAME = "base_core"
-#IP = "localhost"
-IP = "solr"
+IP = "localhost"
+#IP = "solr"
 #IP = "3.16.37.251"
 
 
@@ -42,5 +42,7 @@ class SearchHelper:
         tweet_list = []
         for doc in solrDocs.docs:
             tweet_list.append(doc['data_text'][0])
+        if len(tweet_list) == 0:
+            tweet_list = ['No Data Found']
         return tweet_list
 
