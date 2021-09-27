@@ -2,8 +2,8 @@ import pysolr
 import requests
 
 CORE_NAME = "base_core"
+#IP = "localhost"
 IP = "solr"
-#IP = "solr"
 #IP = "3.16.37.251"
 
 
@@ -31,11 +31,16 @@ class Indexer:
 
 
 
-class SolrSearch:
+class SearchHelper:
 
     def __init__(self):
         self.solr_url = f'http://{IP}:8983/solr/'
         self.connection = pysolr.Solr(self.solr_url + CORE_NAME, always_commit=True, timeout=5000000)
 
-    def search(self, query):
-        return self.connection.search(q=query)
+    def search(self, keyword):
+        solrDocs = self.connection.search(q="*:*", **{'fq': 'keyword:' + keyword}, rows=25)
+        tweet_list = []
+        for doc in solrDocs.docs:
+            tweet_list.append(doc['data_text'][0])
+        return tweet_list
+
