@@ -48,23 +48,14 @@ def my_form_post():
     radio = request.form['radio']
     print('Radio',radio)
     
-    return redirect(url_for("submit", a=selection, b=processed_text, c=radio))
-
-@app.route('/submit/<a>/<b>/<c>')
-def submit(a, b, c):
-    print('here')
-#     list_object = [a,b,c]
     input_dict={
-    "socialmedia": a,
-    "keyword": b,
-    "fetchmode": c
+    "socialmedia": selection,
+    "keyword": processed_text,
+    "fetchmode": radio
 }
     list_object = solr_dict['data']
-    return render_template("User.html", list_to_send=list_object)
+    return render_template("my-form.html", list_to_send=list_object)
 
-
-def fetch(text):
-    print('The user text is',text)
     
 if __name__=='__main__':
     app.run()
