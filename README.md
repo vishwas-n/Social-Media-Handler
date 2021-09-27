@@ -5,8 +5,7 @@
 
 ##### This Project aims to build a one-stop application to manage multiple social media accounts viz. Twitter, Facebook, Instagram. For phase 1, the end-to-end work flow for Twitter is implemented for simple use-case of search i.e search for a given keyword.
 
-**Design:
-**
+**Design:**
 
  1. **Server:** This is a flask application deployed as a docker container. It contains the logic for handling the user query and processing it appropriately. In online mode, data is fetched from the social media APIs and in offline mode, data is fetched from the Solr data Store. Note that, only the data fetched from online APIs previously is pushed into SOLR and only those keywords can be fetched in offline mode.
 
