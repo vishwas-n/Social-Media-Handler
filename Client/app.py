@@ -30,7 +30,7 @@ def my_form_post():
 
     sample = {}
     try:
-        list_object = requests.get(url='http://python-docker_web_1:8990/social_media_handle', params=input_dict)
+        list_object = requests.get(url='http://docker_flask_server:8990/social_media_handle', params=input_dict)
         #list_object = requests.get(url='http://localhost:8990/social_media_handle', params=input_dict)
         sample = json.loads(list_object.text)
     except Exception as e:
