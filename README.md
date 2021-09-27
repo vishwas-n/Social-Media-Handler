@@ -5,7 +5,7 @@
 
 ##### This Project aims to build a one-stop application to manage multiple social media accounts viz. Twitter, Facebook, Instagram. For phase 1, the end-to-end work flow for Twitter is implemented for simple use-case of search i.e search for a given keyword.
 
-**Design:**
+## **Design:**
 
  1. **Server:** This is a flask application deployed as a docker container. It contains the logic for handling the user query and processing it appropriately. In online mode, data is fetched from the social media APIs and in offline mode, data is fetched from the Solr data Store. Note that, only the data fetched from online APIs previously is pushed into SOLR and only those keywords can be fetched in offline mode.
 
@@ -18,7 +18,7 @@ All containers are made visible to one another using docker networks. Steps to r
 ![DS Architecture](https://github.com/vishwas-n/Social-Media-Handler/blob/main/DS%20Architecture.png)
 
 
-**Commands to Deploy:**
+## **Commands to Deploy:**
 
 1) Create a docker network which will be used by all the containers. Run the below command 
 ```sh
@@ -54,7 +54,7 @@ The application is live now and ready to play with.
 
 
 
-**Using the Application:**
+## **Using the Application:**
 
 1) Go to http://localhost:5000/ , select appropriate values for the input boxes. For example, select **'Twitter'** for Social Media (for phase 1, only twitter is integrated). Enter a value for keyword for e.g. 'Covid'. Choose the radio button 'Online' for fetch mode type. After selecting this, click 'Submit'. You'll be able to see 25 live tweets related to the entered keyword on the right side of the web page.
 
