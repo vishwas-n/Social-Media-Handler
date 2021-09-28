@@ -20,7 +20,7 @@ All containers are made visible to one another using docker networks. Steps to r
 
 1. Once the server is started, a REST api is exposed to utilize its functionaly. The server currently supports a GET request with payload taking the params.
 2. The Client webpage has multiple input options. This input is captured and translated to a GET request with payload. 
-3. The server expects this **payload** in the following endpoint ``` (http://127.0.0.1:8990/social_media_handle)
+3. The server expects this **payload** in the following endpoint ```(http://127.0.0.1:8990/social_media_handle)```
 ```
     {
      "socialmedia": "twitter",
