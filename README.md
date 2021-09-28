@@ -15,7 +15,41 @@
 
 All containers are made visible to one another using docker networks. Steps to run the server and client apps are given below.
 
+
+## **Dataflow:**
+
+1. Once the server is started, a REST api is exposed to utilize its functionaly. The server currently supports a GET request with payload taking the params.
+2. The Client webpage has multiple input options. This input is captured and translated to a GET request with payload. 
+3. The server expects this **payload** in the following endpoint ``` (http://127.0.0.1:8990/social_media_handle)
+```
+    {
+     "socialmedia": "twitter",
+     "keyword": "covid",
+     "fetchmode": "online"
+    }
+```
+4. Furthermore, the server processes this payload and either hits the live social media apis or SOLR fetch api and returns the appropriate response. In case of live mode, the data from social media apis is ingested to SOLR DB before returning this as response.
+
+
 ![DS Architecture](https://github.com/vishwas-n/Social-Media-Handler/blob/main/DS%20Architecture.png)
+
+## **Features:**
+
+1. Understanding the options on the webpage:
+     - Social Media Type (Dropdown): Twitter, Facebook, Instagram. Twitter end-to-end flow is implemented for phase 1. This will be extended to other social media platforms in next phase.
+     - Keyword (Textbox): The keyword to search for in any of the above social media. For e.g. if 'covid' is given as the keyword, top tweets related to 'covid' will be fetched and displayed.
+     - FetchMode (Radio-buttons): Online & Offline
+           Online Mode: The keyword is searched for using the selected social media live api. The data that is return by this api is processed and ingested into SOLR DB. The same is returned to the webpage display.
+           Offline Mode: The keyword is searched directly in the SOLR DB (without hitting any of the live apis). So only if the data for the keyword was previously ingested, results will show up in this mode. Otherwise, the response will be 'No Data Found'.
+       
+2. Independent Containers:
+     - The Server, Client, SOLR DB are running as separate containers. So even if the server stops/crashes, there is no data loss as the data is already persisted in SOLR DB, which would still be running as a separate container. If Client app stops/crashes, just a restart of Client will suffice.
+
+3. Proper Abstraction of Data Flow:
+     - The Client does not have direct access to the SOLR DB and would have to go through the Server only to fetch data from SOLR DB.
+
+4. Simple/Lightweight UI:
+     - The webpage has been developed using Flask to make it lightweight and user-friendly. Currently, the list of tweets will be diplayed in a scrollable fashion.
 
 
 ## **Commands to Deploy:**
