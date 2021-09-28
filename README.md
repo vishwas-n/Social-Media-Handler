@@ -15,6 +15,8 @@
 
 All containers are made visible to one another using docker networks. Steps to run the server and client apps are given below.
 
+![DS Architecture](https://github.com/vishwas-n/Social-Media-Handler/blob/main/DS%20Architecture.png)
+
 
 ## **Dataflow:**
 
@@ -30,8 +32,6 @@ All containers are made visible to one another using docker networks. Steps to r
 ```
 4. Furthermore, the server processes this payload and either hits the live social media apis or SOLR fetch api and returns the appropriate response. In case of live mode, the data from social media apis is ingested to SOLR DB before returning this as response.
 
-
-![DS Architecture](https://github.com/vishwas-n/Social-Media-Handler/blob/main/DS%20Architecture.png)
 
 ## **Features:**
 
