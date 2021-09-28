@@ -39,8 +39,8 @@ All containers are made visible to one another using docker networks. Steps to r
      - Social Media Type (Dropdown): Twitter, Facebook, Instagram. Twitter end-to-end flow is implemented for phase 1. This will be extended to other social media platforms in next phase.
      - Keyword (Textbox): The keyword to search for in any of the above social media. For e.g. if 'covid' is given as the keyword, top tweets related to 'covid' will be fetched and displayed.
      - FetchMode (Radio-buttons): Online & Offline
-           Online Mode: The keyword is searched for using the selected social media live api. The data that is return by this api is processed and ingested into SOLR DB. The same is returned to the webpage display.
-           Offline Mode: The keyword is searched directly in the SOLR DB (without hitting any of the live apis). So only if the data for the keyword was previously ingested, results will show up in this mode. Otherwise, the response will be 'No Data Found'.
+           **Online Mode**: The keyword is searched for using the selected social media live api. The data that is return by this api is processed and ingested into SOLR DB. The same is returned to the webpage display.
+           **Offline Mode**: The keyword is searched directly in the SOLR DB (without hitting any of the live apis). So only if the data for the keyword was previously ingested, results will show up in this mode. Otherwise, the response will be 'No Data Found'.
        
 2. Independent Containers:
      - The Server, Client, SOLR DB are running as separate containers. So even if the server stops/crashes, there is no data loss as the data is already persisted in SOLR DB, which would still be running as a separate container. If Client app stops/crashes, just a restart of Client will suffice.
