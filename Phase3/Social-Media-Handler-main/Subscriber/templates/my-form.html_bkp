@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Input</title>
+    <style type="text/css">
+.boxed {
+  border: 3px solid green ;width:70%;height:250px;overflow:auto;position:relative;top: -100px;left: 350px;
+}
+.boxed1 {
+  border: 3px solid blue ;width:24%;height:200px;overflow:auto;position:relative;top: -700px;left: 0px;
+}
+.boxed2 {
+    padding: 10px; border: 2px solid red;top: 100px;left: 0px;
+}
+    
+        
+        
+</style>
+</head>
+
+<body>
+
+<form method="POST">
+    
+    
+    <p><strong>Topics to Subscribe</strong></p>
+    {% for element in notifications%}
+        <input type="checkbox" name={{element}}>{{element}}<br>
+    {% endfor %}
+
+    <p> <input type="submit"> </p>
+    
+    
+    
+    <p><strong>Topics to Un-Subscribe</strong></p>
+    {% for element in unsubscribe%}
+        <input type="checkbox" name={{element}}>{{element}}<br>
+    {% endfor %}
+
+
+    <p> <input type="submit"> </p>
+    
+</form>
+
+{% for element in list_to_send.keys()%}
+
+    <div class="boxed">
+    <p style="left:400px;position:relative"><strong>Topic: {{element}} (Most Recent Data)</strong></p>
+    {% for elem in list_to_send[element]%}
+        <p class="boxed2">{{elem}}</p>
+    {% endfor %}
+    </div> <br>
+    
+{% endfor %}
+
+
+
+<!--script>
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}
+
+window.onload = timedRefresh(7000);
+</script-->
+</body>
+</html>
