@@ -1,5 +1,5 @@
 # Social-Media-Handler
-## DS Project. One place to manage them all (all social media accounts)
+## Distributed, Asynchronous Publish Subscribe system to handle subscriptions for social media data (Twitter, Reddit).
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
